@@ -108,7 +108,7 @@ function myclick(box) {
          current = box; // Set kotak aktif
       }
       highlightCells();
-      current.style.background="orange";
+      current.style.background="rgb(58, 169, 206)";
    }
 }
 
@@ -246,7 +246,7 @@ function nextmover(code) {
    }
    else {
       highlightCells();
-      current.style.backgroundColor = "orange";
+      current.style.backgroundColor = "rgb(58, 169, 206)";
    }
 }
 
