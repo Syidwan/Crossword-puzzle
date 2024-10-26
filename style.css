@@ -1,0 +1,80 @@
+table{
+   border: 1px solid black;
+}
+
+th{
+   width: 50px;
+   height: 50px;
+   background: rgb(255, 0, 0.37);
+   border: 1px solid rgb(0, 0, 0);
+   position: relative;
+   cursor: grab;
+}
+
+.b{
+   background: black;
+   cursor: not-allowed;
+}
+
+.w{
+   background: white;
+}
+
+.w:hover{
+   background: rgba(255, 191, 146, 0.322);
+}
+
+th span{
+   font-size: 15px;
+   position: absolute;
+   top: 0;
+   left: 0;
+}
+
+th b{
+   font-size: 40px;
+   color: green;
+}
+
+button{
+   width: 200px;
+   height: 60px;
+   margin: 15px;
+   background: orange;
+   cursor: pointer;
+   transition: 1s;
+}
+
+button:hover{
+   background: green;
+   color: white;
+}
+
+section {  
+   display: flex;
+}
+.across {
+   width: 30%;
+   padding: 10px;
+   box-sizing: border-box;
+}
+.down {
+   width: 25%;
+   padding: 10px;
+   box-sizing: border-box;
+}
+li{
+   list-style: none;
+   font-family: sans-serif;
+   font-weight: 600;
+   margin-left: -30;
+   font-size: 15px;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   padding: 4px;
+}
+h2{
+   font-family: sans-serif;
+   border-bottom: 5px double black ;
+   padding-left: 15px;
+}
