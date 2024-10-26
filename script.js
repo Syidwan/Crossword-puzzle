@@ -101,16 +101,50 @@ function myclick(box) {
    if (box.classList.contains("w")) {
       var row = box.getAttribute("row");
       var col = box.getAttribute("col");
+
       if (current === box) {
          // Double-click: toggle arah highlight
          isVertical = !isVertical;
       } else {
          current = box; // Set kotak aktif
       }
+
       highlightCells();
-      current.style.background="rgb(58, 169, 206)";
+
+      // Set warna untuk kotak aktif
+      document.querySelectorAll(".w").forEach(cell => cell.style.backgroundColor = "transparent");
+      current.style.backgroundColor = "rgb(58, 169, 206)";
+
+      // Fokus pada input tersembunyi untuk memunculkan keyboard
+      const hiddenInput = document.getElementById("hiddenInput");
+      hiddenInput.value = ""; // Reset nilai input sebelumnya
+      hiddenInput.focus(); // Memunculkan keyboard di Android
    }
 }
+
+document.getElementById("hiddenInput").addEventListener("input", function (event) {
+   if (current && event.target.value) {
+      const letter = event.target.value.toUpperCase(); // Ambil huruf yang dimasukkan, ubah jadi kapital
+      current.querySelector("b").innerHTML = letter; // Masukkan huruf ke dalam kotak
+
+      // Hapus isi input setelah dimasukkan
+      event.target.value = "";
+
+      // Pindah ke kotak berikutnya
+      var row = parseInt(current.getAttribute("row"));
+      var col = parseInt(current.getAttribute("col"));
+
+      if (isVertical) {
+         if (row < total_rows - 1 && !document.querySelector(`[row="${row + 1}"][col="${col}"]`).classList.contains("b")) {
+            nextmover(40); // Pindah ke bawah
+         }
+      } else {
+         if (col < total_cols - 1 && !document.querySelector(`[row="${row}"][col="${col + 1}"]`).classList.contains("b")) {
+            nextmover(39); // Pindah ke kanan
+         }
+      }
+   }
+});
 
 document.body.onkeyup = function (event) {
    if (current != null) {
